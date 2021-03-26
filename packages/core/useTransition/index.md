@@ -115,10 +115,22 @@ declare type EasingFunction = (n: number) => number
 /**
  * Transition options
  */
-interface TransitionOptions {
+export declare type TransitionOptions = {
+  /**
+   * Transition duration in milliseconds
+   */
   duration?: MaybeRef<number>
-  onFinished?: () => unknown
-  onStarted?: () => unknown
+  /**
+   * Callback to execute after transition finishes
+   */
+  onFinished?: () => void
+  /**
+   * Callback to execute after transition starts
+   */
+  onStarted?: () => void
+  /**
+   * Easing function or cubic bezier points for calculating transition values
+   */
   transition?: MaybeRef<EasingFunction | CubicBezierPoints>
 }
 /**
@@ -126,18 +138,26 @@ interface TransitionOptions {
  *
  * @see   {@link https://easings.net}
  */
-export declare const TransitionPresets: Record<string, CubicBezierPoints>
-/**
- * Transition between values.
- *
- * @see   {@link https://vueuse.org/useTransition}
- * @param source
- * @param options
- */
-export declare function useTransition<T extends Ref<number | number[]>>(
+export declare const TransitionPresets: Record<
+  string,
+  CubicBezierPoints | EasingFunction
+>
+export declare function useTransition(
+  source: Ref<number>,
+  options?: TransitionOptions
+): ComputedRef<number>
+export declare function useTransition<T extends MaybeRef<number>[]>(
+  source: [...T],
+  options?: TransitionOptions
+): ComputedRef<
+  {
+    [K in keyof T]: number
+  }
+>
+export declare function useTransition<T extends Ref<number[]>>(
   source: T,
   options?: TransitionOptions
-): ComputedRef<UnwrapRef<T>>
+): ComputedRef<number[]>
 export {}
 ```
 
