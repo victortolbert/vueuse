@@ -355,6 +355,13 @@
       "description": "reactive [Battery Status API](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API)"
     },
     {
+      "name": "useBreakpoints",
+      "package": "core",
+      "docs": "https://vueuse.org/core/useBreakpoints/",
+      "category": "Browser",
+      "description": "reactive viewport breakpoints"
+    },
+    {
       "name": "useBrowserLocation",
       "package": "core",
       "docs": "https://vueuse.org/core/useBrowserLocation/",
@@ -507,6 +514,13 @@
       "docs": "https://vueuse.org/core/useManualRefHistory/",
       "category": "Utilities",
       "description": "manually track the change history of a ref when the using calls `commit()`"
+    },
+    {
+      "name": "useMediaControls",
+      "package": "core",
+      "docs": "https://vueuse.org/core/useMediaControls/",
+      "category": "Browser",
+      "description": "reactive media controls for both `audio` and `video` elements"
     },
     {
       "name": "useMediaQuery",
